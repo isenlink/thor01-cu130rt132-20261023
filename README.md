@@ -4,6 +4,24 @@
 验证日期：2026-10-23  
 目标板：Thor01（`192.168.1.101`），aarch64，58 GiB UMA
 
+## 获取预编译二进制
+
+两个 `llama-server` 二进制（约 160 MB）不进 git 历史，从 [Releases](https://github.com/isenlink/thor01-cu130rt132-20261023/releases/tag/thor01-cu130rt132-20261023) 下载完整包：
+
+| 文件 | 大小 | 说明 |
+|---|---|---|
+| `thor01-cu130rt132-20261023.tar.gz` | ~95 MB | 完整包：二进制 + 文档 + 补丁 + 脚本 + 证据 |
+| `thor01-cu130rt132-20261023.tar.gz.sha256` | 65 B | 包 SHA256 |
+
+```bash
+sha256sum -c thor01-cu130rt132-20261023.tar.gz.sha256
+tar xzf thor01-cu130rt132-20261023.tar.gz
+cd thor01-cu130rt132-20261023
+sha256sum -c SHA256SUMS          # 69 件全量校验
+```
+
+本仓库 git 历史里是文档、补丁、脚本与证据（`artifacts/` 下二进制被 `.gitignore` 排除，仅保留 `artifacts/SHA256SUMS` 供校验）。
+
 ## 1. 结论
 
 本发布把 llama.cpp 的 **编译工具链改成 CUDA 13.0.88（nvcc 13.0，SBSA/aarch64）**，
