@@ -1,0 +1,19 @@
+2026-10-23T02:27:21+08:00
+Linux tegra-ubuntu 6.1.119-rt45-prod-rt-tegra #1 SMP PREEMPT_RT Sun Jun  7 22:27:50 CST 2026 aarch64 aarch64 aarch64 GNU/Linux
+--- services ---
+active
+active
+enabled
+enabled
+--- ports ---
+LISTEN 0      512          0.0.0.0:8080      0.0.0.0:*    users:(("llama-server-cu",pid=461997,fd=12))
+LISTEN 0      512          0.0.0.0:8082      0.0.0.0:*    users:(("llama-server-cu",pid=462129,fd=12))
+--- hashes ---
+466f25d4d136035bb1c1b90f672c9fa7a9cdfad03b1c0690675a3d4b265084a7  /brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu130rt132-sm110a
+73bb5fc7540cc9b1547b6f5d8d9c3233081b389a758e75be2e09c295584fe1ee  /brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu132-sm110a
+--- hugepages ---
+HugePages_Total:   25600
+HugePages_Free:        9
+Hugepagesize:       2048 kB
+--- dmesg ---
+NO_MATCHES

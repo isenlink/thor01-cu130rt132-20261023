@@ -1,0 +1,165 @@
+0.00.016.756 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.017.090 W srv  llama_server: -----------------
+0.00.017.094 W srv  llama_server: CORS is set to allow all origins ('*') and no API key is set
+0.00.017.094 W srv  llama_server: this can be a security risk (cross-origin attacks)
+0.00.017.094 W srv  llama_server: more info: https://github.com/ggml-org/llama.cpp/pull/25655
+0.00.017.094 W srv  llama_server: -----------------
+0.00.018.339 I srv    load_model: loading model '/brand_data/ai_workspace/models/RadixArk-F8attn-v2.gguf'
+0.01.282.084 E llama_init_from_model: failed to initialize the context: dflash requires ctx_other to be set (this warning is normal during memory fitting)
+0.01.371.784 W operator(): failed to measure the memory of the extra model, fitting without it: failed to create llama_context from model
+0.01.838.136 W model has unused tensor blk.64.attn_norm.weight (size = 20480 bytes) -- ignoring
+0.01.838.145 W model has unused tensor blk.64.post_attention_norm.weight (size = 20480 bytes) -- ignoring
+0.01.838.154 W model has unused tensor blk.64.attn_q.weight (size = 125829120 bytes) -- ignoring
+0.01.838.157 W model has unused tensor blk.64.attn_k.weight (size = 10485760 bytes) -- ignoring
+0.01.838.160 W model has unused tensor blk.64.attn_v.weight (size = 10485760 bytes) -- ignoring
+0.01.838.170 W model has unused tensor blk.64.attn_output.weight (size = 62914560 bytes) -- ignoring
+0.01.838.173 W model has unused tensor blk.64.attn_q_norm.weight (size = 1024 bytes) -- ignoring
+0.01.838.177 W model has unused tensor blk.64.attn_k_norm.weight (size = 1024 bytes) -- ignoring
+0.01.838.180 W model has unused tensor blk.64.ffn_gate.weight (size = 178257920 bytes) -- ignoring
+0.01.838.183 W model has unused tensor blk.64.ffn_down.weight (size = 178257920 bytes) -- ignoring
+0.01.838.186 W model has unused tensor blk.64.ffn_up.weight (size = 178257920 bytes) -- ignoring
+0.01.838.191 W model has unused tensor blk.64.nextn.eh_proj.weight (size = 104857600 bytes) -- ignoring
+0.01.838.195 W model has unused tensor blk.64.nextn.enorm.weight (size = 20480 bytes) -- ignoring
+0.01.838.198 W model has unused tensor blk.64.nextn.hnorm.weight (size = 20480 bytes) -- ignoring
+0.01.838.207 W model has unused tensor blk.64.nextn.shared_head_norm.weight (size = 20480 bytes) -- ignoring
+0.16.028.760 I cmn          init: llama threadpool init, n_threads = 12
+0.16.349.401 I common_speculative_init_result: loading draft model '/brand_data/ai_workspace/ai02/models/Qwen3.8-27B-DFlash2-BF16.gguf'
+0.19.197.115 W load_hparams: Qwen-VL models require at minimum 1024 image tokens to function correctly on grounding tasks
+0.19.197.123 W load_hparams: if you encounter problems with accuracy, try adding --image-min-tokens 1024
+0.19.197.123 W load_hparams: more info: https://github.com/ggml-org/llama.cpp/issues/16842
+
+0.19.858.899 I srv    load_model: loaded multimodal model, '/brand_data/ai_workspace/models/mmproj-Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-BF16.gguf'
+0.20.113.430 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 262144, kv_unified = 'false'
+0.20.113.467 I common_speculative_impl_draft_dflash: adding speculative implementation 'draft-dflash'
+0.20.113.473 I common_speculative_impl_draft_dflash: - n_max=7, n_min=0, p_min=0.00
+0.20.113.474 I common_speculative_impl_draft_dflash: - block_size=8, mask_token_id=248070, n_extract=5, sample_from_anchor=true
+0.20.171.889 W srv          init: chat template supports preserving reasoning, it is enabled by default (may use more tokens, disable via --no-reasoning-preserve)
+0.20.171.905 I srv  llama_server: model loaded
+0.20.171.908 I srv  llama_server: listening on http://0.0.0.0:8080
+0.20.171.909 W srv  llama_server: NOTICE: server default port will be changed to :9931 in a future release
+0.20.171.909 W srv  llama_server:         ref: https://github.com/ggml-org/llama.cpp/pull/26508
+0.33.426.684 I slot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = -1
+0.33.427.014 I slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+0.34.017.590 I srv    operator(): spec timing: draft_call=106.828 ms slots=1 drafted=7
+0.34.017.800 I slot   operator(): id  0 | task 0 | spec timing: dft_trim=0.178 ms draft=7 use_ckpt=0 pos_max=19
+0.34.255.358 I slot   operator(): id  0 | task 0 | spec timing: verify_sample=0.648 ms draft=7 accepted=1 rollback=6 use_ckpt_tgt=0 synth=0 replay=0
+0.34.255.742 I slot print_timing: id  0 | task 0 | prompt eval time =     483.70 ms /    20 tokens (   24.19 ms per token,    41.35 tokens per second)
+0.34.255.747 I slot print_timing: id  0 | task 0 |        eval time =     344.64 ms /     2 tokens (  344.64 ms per token,     2.90 tokens per second)
+0.34.255.748 I slot print_timing: id  0 | task 0 |       total time =     828.35 ms /    22 tokens
+0.34.255.749 I slot print_timing: id  0 | task 0 |    graphs reused =          1
+0.34.255.754 I slot print_timing: id  0 | task 0 | draft acceptance = 0.14286 (    1 accepted /     7 generated), mean len =  2.00
+0.34.256.261 I slot      release: id  0 | task 0 | stop processing: n_tokens = 22, truncated = 0
+0.34.261.230 I slot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = 150210255857
+0.34.352.015 I slot launch_slot_: id  0 | task 4 | processing task, is_child = 0
+0.34.939.390 I srv    operator(): spec timing: draft_call=31.776 ms slots=1 drafted=7
+0.34.939.594 I slot   operator(): id  0 | task 4 | spec timing: dft_trim=0.175 ms draft=7 use_ckpt=0 pos_max=61
+0.35.118.022 I slot   operator(): id  0 | task 4 | spec timing: verify_sample=2.459 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.35.146.896 I srv    operator(): spec timing: draft_call=28.502 ms slots=1 drafted=7
+0.35.147.089 I slot   operator(): id  0 | task 4 | spec timing: dft_trim=0.166 ms draft=7 use_ckpt=0 pos_max=69
+0.35.339.411 I slot   operator(): id  0 | task 4 | spec timing: verify_sample=2.400 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.35.368.445 I srv    operator(): spec timing: draft_call=28.660 ms slots=1 drafted=7
+0.35.368.638 I slot   operator(): id  0 | task 4 | spec timing: dft_trim=0.166 ms draft=7 use_ckpt=0 pos_max=77
+0.35.543.481 I slot   operator(): id  0 | task 4 | spec timing: verify_sample=2.330 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.35.572.296 I srv    operator(): spec timing: draft_call=28.457 ms slots=1 drafted=7
+0.35.572.499 I slot   operator(): id  0 | task 4 | spec timing: dft_trim=0.177 ms draft=7 use_ckpt=0 pos_max=85
+0.35.746.958 I slot   operator(): id  0 | task 4 | spec timing: verify_sample=2.351 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.35.747.311 I slot print_timing: id  0 | task 4 | prompt eval time =     555.55 ms /    62 tokens (    8.96 ms per token,   111.60 tokens per second)
+0.35.747.316 I slot print_timing: id  0 | task 4 |        eval time =     839.39 ms /    33 tokens (   26.23 ms per token,    38.12 tokens per second)
+0.35.747.316 I slot print_timing: id  0 | task 4 |       total time =    1394.94 ms /    95 tokens
+0.35.747.318 I slot print_timing: id  0 | task 4 |    graphs reused =          4
+0.35.747.322 I slot print_timing: id  0 | task 4 | draft acceptance = 1.00000 (   28 accepted /    28 generated), mean len =  8.00
+0.35.747.360 I slot      release: id  0 | task 4 | stop processing: n_tokens = 94, truncated = 0
+0.35.752.132 I slot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = 150211746956
+0.35.842.764 I slot launch_slot_: id  0 | task 11 | processing task, is_child = 0
+0.36.325.862 I srv    operator(): spec timing: draft_call=28.869 ms slots=1 drafted=7
+0.36.326.059 I slot   operator(): id  0 | task 11 | spec timing: dft_trim=0.170 ms draft=7 use_ckpt=0 pos_max=32
+0.36.505.195 I slot   operator(): id  0 | task 11 | spec timing: verify_sample=2.377 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.36.534.062 I srv    operator(): spec timing: draft_call=28.495 ms slots=1 drafted=7
+0.36.534.254 I slot   operator(): id  0 | task 11 | spec timing: dft_trim=0.166 ms draft=7 use_ckpt=0 pos_max=40
+0.36.717.119 I slot   operator(): id  0 | task 11 | spec timing: verify_sample=1.533 ms draft=7 accepted=4 rollback=3 use_ckpt_tgt=0 synth=0 replay=0
+0.36.717.479 I slot print_timing: id  0 | task 11 | prompt eval time =     454.18 ms /    33 tokens (   13.76 ms per token,    72.66 tokens per second)
+0.36.717.484 I slot print_timing: id  0 | task 11 |        eval time =     420.17 ms /    13 tokens (   35.01 ms per token,    28.56 tokens per second)
+0.36.717.485 I slot print_timing: id  0 | task 11 |       total time =     874.35 ms /    46 tokens
+0.36.717.485 I slot print_timing: id  0 | task 11 |    graphs reused =          5
+0.36.717.490 I slot print_timing: id  0 | task 11 | draft acceptance = 0.78571 (   11 accepted /    14 generated), mean len =  6.50
+0.36.717.535 I slot      release: id  0 | task 11 | stop processing: n_tokens = 46, truncated = 0
+0.49.062.073 I slot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = 150212717132
+0.49.157.397 I slot launch_slot_: id  0 | task 16 | processing task, is_child = 0
+0.49.517.941 I srv    operator(): spec timing: draft_call=29.626 ms slots=1 drafted=7
+0.49.518.140 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.170 ms draft=7 use_ckpt=0 pos_max=9
+0.49.694.868 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=0.675 ms draft=7 accepted=1 rollback=6 use_ckpt_tgt=0 synth=0 replay=0
+0.49.725.896 I srv    operator(): spec timing: draft_call=30.641 ms slots=1 drafted=7
+0.49.726.093 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.170 ms draft=7 use_ckpt=0 pos_max=11
+0.49.914.922 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=0.663 ms draft=7 accepted=1 rollback=6 use_ckpt_tgt=0 synth=0 replay=0
+0.49.943.886 I srv    operator(): spec timing: draft_call=28.568 ms slots=1 drafted=7
+0.49.944.080 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.168 ms draft=7 use_ckpt=0 pos_max=13
+0.50.118.740 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=2.339 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.50.147.522 I srv    operator(): spec timing: draft_call=28.426 ms slots=1 drafted=7
+0.50.147.721 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.173 ms draft=7 use_ckpt=0 pos_max=21
+0.50.320.141 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=0.353 ms draft=7 accepted=0 rollback=7 use_ckpt_tgt=0 synth=0 replay=0
+0.50.349.821 I srv    operator(): spec timing: draft_call=29.294 ms slots=1 drafted=7
+0.50.350.013 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.166 ms draft=7 use_ckpt=0 pos_max=22
+0.50.522.708 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=0.646 ms draft=7 accepted=1 rollback=6 use_ckpt_tgt=0 synth=0 replay=0
+0.50.552.112 I srv    operator(): spec timing: draft_call=29.043 ms slots=1 drafted=7
+0.50.552.302 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.165 ms draft=7 use_ckpt=0 pos_max=24
+0.50.726.621 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=2.349 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.50.755.364 I srv    operator(): spec timing: draft_call=28.388 ms slots=1 drafted=7
+0.50.755.555 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.165 ms draft=7 use_ckpt=0 pos_max=32
+0.50.929.079 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=1.523 ms draft=7 accepted=4 rollback=3 use_ckpt_tgt=0 synth=0 replay=0
+0.50.957.834 I srv    operator(): spec timing: draft_call=28.390 ms slots=1 drafted=7
+0.50.958.024 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.165 ms draft=7 use_ckpt=0 pos_max=37
+0.51.132.371 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=2.385 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.51.161.119 I srv    operator(): spec timing: draft_call=28.387 ms slots=1 drafted=7
+0.51.161.309 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.165 ms draft=7 use_ckpt=0 pos_max=45
+0.51.335.705 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=2.365 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.51.364.468 I srv    operator(): spec timing: draft_call=28.407 ms slots=1 drafted=7
+0.51.364.660 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.166 ms draft=7 use_ckpt=0 pos_max=53
+0.51.539.079 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=2.473 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.51.567.800 I srv    operator(): spec timing: draft_call=28.368 ms slots=1 drafted=7
+0.51.567.993 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.167 ms draft=7 use_ckpt=0 pos_max=61
+0.51.742.286 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=2.255 ms draft=7 accepted=6 rollback=1 use_ckpt_tgt=0 synth=0 replay=0
+0.51.771.043 I srv    operator(): spec timing: draft_call=28.390 ms slots=1 drafted=7
+0.51.771.241 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.172 ms draft=7 use_ckpt=0 pos_max=68
+0.51.943.473 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=0.366 ms draft=7 accepted=0 rollback=7 use_ckpt_tgt=0 synth=0 replay=0
+0.51.973.147 I srv    operator(): spec timing: draft_call=29.287 ms slots=1 drafted=7
+0.51.973.346 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.174 ms draft=7 use_ckpt=0 pos_max=69
+0.52.145.654 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=0.368 ms draft=7 accepted=0 rollback=7 use_ckpt_tgt=0 synth=0 replay=0
+0.52.175.357 I srv    operator(): spec timing: draft_call=29.308 ms slots=1 drafted=7
+0.52.175.555 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.173 ms draft=7 use_ckpt=0 pos_max=70
+0.52.350.367 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=2.687 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.52.379.166 I srv    operator(): spec timing: draft_call=28.431 ms slots=1 drafted=7
+0.52.379.366 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.175 ms draft=7 use_ckpt=0 pos_max=78
+0.52.553.158 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=1.715 ms draft=7 accepted=4 rollback=3 use_ckpt_tgt=0 synth=0 replay=0
+0.52.581.948 I srv    operator(): spec timing: draft_call=28.396 ms slots=1 drafted=7
+0.52.582.147 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.174 ms draft=7 use_ckpt=0 pos_max=83
+0.52.756.852 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=2.656 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.52.785.642 I srv    operator(): spec timing: draft_call=28.416 ms slots=1 drafted=7
+0.52.785.842 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.176 ms draft=7 use_ckpt=0 pos_max=91
+0.52.958.703 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=0.722 ms draft=7 accepted=1 rollback=6 use_ckpt_tgt=0 synth=0 replay=0
+0.52.988.032 I srv    operator(): spec timing: draft_call=28.932 ms slots=1 drafted=7
+0.52.988.232 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.175 ms draft=7 use_ckpt=0 pos_max=93
+0.53.162.795 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=2.586 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.53.191.559 I srv    operator(): spec timing: draft_call=28.401 ms slots=1 drafted=7
+0.53.191.758 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.176 ms draft=7 use_ckpt=0 pos_max=101
+0.53.366.452 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=2.574 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.53.366.796 I slot print_timing: id  0 | task 16 | n_gen =    101, tg =  25.79 t/s, tg_3s =  26.04 t/s
+0.53.395.256 I srv    operator(): spec timing: draft_call=28.442 ms slots=1 drafted=7
+0.53.395.452 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.171 ms draft=7 use_ckpt=0 pos_max=109
+0.53.570.373 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=2.902 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.53.599.204 I srv    operator(): spec timing: draft_call=28.469 ms slots=1 drafted=7
+0.53.599.402 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.172 ms draft=7 use_ckpt=0 pos_max=117
+0.53.776.025 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=2.820 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.53.805.101 I srv    operator(): spec timing: draft_call=28.694 ms slots=1 drafted=7
+0.53.805.300 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.173 ms draft=7 use_ckpt=0 pos_max=125
+0.53.982.066 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=3.071 ms draft=7 accepted=7 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.54.010.950 I srv    operator(): spec timing: draft_call=28.519 ms slots=1 drafted=2
+0.54.011.152 I slot   operator(): id  0 | task 16 | spec timing: dft_trim=0.171 ms draft=2 use_ckpt=0 pos_max=133
+0.54.137.075 I slot   operator(): id  0 | task 16 | spec timing: verify_sample=1.073 ms draft=2 accepted=2 rollback=0 use_ckpt_tgt=0 synth=0 replay=0
+0.54.137.429 I slot print_timing: id  0 | task 16 | prompt eval time =     330.87 ms /    10 tokens (   33.09 ms per token,    30.22 tokens per second)
+0.54.137.434 I slot print_timing: id  0 | task 16 |        eval time =    4648.81 ms /   128 tokens (   36.60 ms per token,    27.32 tokens per second)
+0.54.137.435 I slot print_timing: id  0 | task 16 |       total time =    4979.68 ms /   138 tokens
+0.54.137.436 I slot print_timing: id  0 | task 16 |    graphs reused =         26
+0.54.137.442 I slot print_timing: id  0 | task 16 | draft acceptance = 0.66667 (  104 accepted /   156 generated), mean len =  5.52
+0.54.137.707 I slot      release: id  0 | task 16 | stop processing: n_tokens = 137, truncated = 0
+0.54.146.021 I slot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = 150230137303
+0.54.246.948 I slot launch_slot_: id  0 | task 42 | processing task, is_child = 0

@@ -1,0 +1,5 @@
+d15dac916823f590fa8e584ae18a37c62d61947ce33df943a658c83766d2e7e9  /brand_data/ai_workspace/models/RadixArk-F8attn-v2.gguf
+26d47ca20ab07688327a63d912acad222d924eaaa92a980cc488de3c67e736bc  /brand_data/ai_workspace/ai02/models/Qwen3.8-27B-DFlash2-BF16.gguf
+5681b690bcb8eb10cd28d62d078cb4e01521a3ea4880a3fc7d54de72de2dd142  /brand_data/ai_workspace/models/mmproj-Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-BF16.gguf
+f1a6f30ddae86e625cb5f494891b9a2a68169819f42527ef0c65fb46652366b5  /brand_data/ai_workspace/models/qwen3vl8b/Qwen3-VL-8B-Instruct-Q6_K.gguf
+30cc93c7375b529b2abe165d1597e12f6717bf87565655a546727c4bd2bb5ada  /brand_data/ai_workspace/models/qwen3vl8b/mmproj-Qwen3-VL-8B-Instruct-F16.gguf

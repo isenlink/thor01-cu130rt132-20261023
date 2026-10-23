@@ -1,0 +1,21 @@
+compile toolkit:
+  source image ghcr.io/nvidia-ai-iot/llama_cpp@sha256:f7c67c102b08252e963f9e5f92c3a36554c8f69305eb7ea257c6cd12e24c3191
+  cuda        13.0.1
+  cuda_nvcc   13.0.88
+  cuda_cudart 13.0.88
+  cuda_crt    13.0.88
+  libcublas   13.0.2.14
+  nvcc        Cuda compilation tools, release 13.0, V13.0.88
+
+artifact:
+  ELF 64-bit LSB pie executable, ARM aarch64
+  BuildID sha1 f22fca5bbca9cf95a420d8b9d836a9c52ba3fcc2
+  NEEDED libcudart.so.13 libcublas.so.13 libcublasLt.so.13 libcuda.so.1
+  sm_110a cubins 144
+  SHA256 466f25d4d136035bb1c1b90f672c9fa7a9cdfad03b1c0690675a3d4b265084a7
+
+board runtime:
+  cudaRuntimeGetVersion 13020
+  cuDriverGetVersion    13020
+  device name Thor, cc=11.0, cc_code=1100
+  T4 guard expected cc_code=1010, NOT_MATCHED

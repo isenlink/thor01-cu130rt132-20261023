@@ -1,0 +1,73 @@
+Warning: Permanently added '192.168.1.101' (ED25519) to the list of known hosts.
+collected_at=2026-10-23T02:20:01+08:00
+host=tegra-ubuntu
+Linux tegra-ubuntu 6.1.119-rt45-prod-rt-tegra #1 SMP PREEMPT_RT Sun Jun  7 22:27:50 CST 2026 aarch64 aarch64 aarch64 GNU/Linux
+--- os ---
+PRETTY_NAME="Ubuntu 24.04.1 LTS"
+--- services ---
+active
+active
+enabled
+enabled
+--- pids ---
+461997 /brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu130rt132-sm110a -m /brand_data/ai_workspace/models/RadixArk-F8attn-v2.gguf -md /brand_data/ai_workspace/ai02/models/Qwen3.8-27B-DFlash2-BF16.gguf --mmproj /brand_data/ai_workspace/models/mmproj-Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-BF16.gguf --mmproj-offload --alias qwen3.8-27b --reasoning-effort medium --temp 0.3 -ngl 99 -c 262144 -fa on --cache-type-k f16 --cache-type-v f16 --parallel 1 --port 8080 --host 0.0.0.0 --spec-type draft-dflash --spec-draft-n-max 7 --cache-ram 2048
+462129 /brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu130rt132-sm110a -m /brand_data/ai_workspace/models/qwen3vl8b/Qwen3-VL-8B-Instruct-Q6_K.gguf --mmproj /brand_data/ai_workspace/models/qwen3vl8b/mmproj-Qwen3-VL-8B-Instruct-F16.gguf --mmproj-offload --alias qwen3-vl-8b -ngl 99 -c 20480 -np 1 --host 0.0.0.0 --port 8082
+--- ports ---
+LISTEN 0      512          0.0.0.0:8080      0.0.0.0:*    users:(("llama-server-cu",pid=461997,fd=12))
+LISTEN 0      512          0.0.0.0:8082      0.0.0.0:*    users:(("llama-server-cu",pid=462129,fd=12))
+--- binary sha256 ---
+466f25d4d136035bb1c1b90f672c9fa7a9cdfad03b1c0690675a3d4b265084a7  /brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu130rt132-sm110a
+73bb5fc7540cc9b1547b6f5d8d9c3233081b389a758e75be2e09c295584fe1ee  /brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu132-sm110a
+--- unit sha256 ---
+452657d7ba48725d5b67946d45be372122122a46fad98f5420982a60e095d256  /etc/systemd/system/thor01-qwen38-27b.service
+4629d129dfa1d51b1ca7006df7cd84ddb8038107bb7b64957152f61ae60071a0  /etc/systemd/system/thor01-qwen3vl8b.service
+452657d7ba48725d5b67946d45be372122122a46fad98f5420982a60e095d256  /brand_data/ai_workspace/thor01-cu132-20261022/systemd/thor01-qwen38-27b.service
+4629d129dfa1d51b1ca7006df7cd84ddb8038107bb7b64957152f61ae60071a0  /brand_data/ai_workspace/thor01-cu132-20261022/systemd/thor01-qwen3vl8b.service
+--- execstart ---
+/etc/systemd/system/thor01-qwen38-27b.service:ExecStart=/usr/bin/bash /brand_data/ai_workspace/thor01-cu132-20261022/run-8080-cu130rt132.sh
+/etc/systemd/system/thor01-qwen3vl8b.service:ExecStart=/usr/bin/bash /brand_data/ai_workspace/thor01-cu132-20261022/run-8082-cu130rt132.sh
+--- runtime sha256 ---
+17515a9dd5f56015baac7a7d94617e87ad802345ced2248fa37c4b5d1fd88235  /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcudart.so.13
+f0993dea3451082be0e2c780f68600b27688dbea364c7031ae77e16ab3f9ed8c  /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcublas.so.13
+5af2ae59e652871dfc32fda727c0ede03fce740ca8c06b38b28a59644b35b247  /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcublasLt.so.13
+e4c849be8e1bca055c13c8ee0866abfbc58a7041db32c9534ea07853da4f801d  /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libcuda.so.1.1
+--- ldd ---
+	libcudart.so.13 => /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcudart.so.13 (0x0000ffffb3cf0000)
+	libcublas.so.13 => /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcublas.so.13 (0x0000ffffb01a0000)
+	libcublasLt.so.13 => /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcublasLt.so.13 (0x0000ffff88950000)
+	libcuda.so.1 => /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libcuda.so.1 (0x0000ffff83150000)
+--- hugepages ---
+HugePages_Total:   25600
+HugePages_Free:        9
+HugePages_Rsvd:        0
+Hugepagesize:       2048 kB
+vm.nr_hugepages = 25600
+vm.nr_overcommit_hugepages = 0
+--- meminfo ---
+MemTotal:       61524140 kB
+MemFree:          926164 kB
+MemAvailable:    2340316 kB
+Buffers:            6016 kB
+Cached:          1969620 kB
+--- dmesg ---
+dmesg_lines=7582
+DMESG=NO_MATCHES
+--- probe ---
+devices=1 name=Thor cc=11.0 cc_code=1100 runtime=13020 driver=13020
+T4_GUARD=NOT_MATCHED expected_cc_code=1010
+--- latest logs ---
+-rw-r--r--. 1 nvidia nvidia  5195 Oct 23 02:19 /brand_data/ai_workspace/thor01-cu132-20261022/logs/qwen3vl8b-cu130rt132-8082-20261023-021205.log
+-rw-r--r--. 1 nvidia nvidia 14209 Oct 23 02:19 /brand_data/ai_workspace/thor01-cu132-20261022/logs/radixark-cu130rt132-262k-8080-20261023-021144.log
+-rw-r--r--. 1 nvidia nvidia 52488 Oct 23 02:06 /brand_data/ai_workspace/thor01-cu132-20261022/logs/radixark-cu130rt132-262k-8080-20261023-020318.log
+-rw-r--r--. 1 nvidia nvidia  3240 Oct 23 02:06 /brand_data/ai_workspace/thor01-cu132-20261022/logs/qwen3vl8b-cu130rt132-8082-20261023-020339.log
+--- 8080 key lines ---
+0.01.263.764 E llama_init_from_model: failed to initialize the context: dflash requires ctx_other to be set (this warning is normal during memory fitting)
+0.01.353.002 W operator(): failed to measure the memory of the extra model, fitting without it: failed to create llama_context from model
+0.16.630.897 I common_speculative_init_result: loading draft model '/brand_data/ai_workspace/ai02/models/Qwen3.8-27B-DFlash2-BF16.gguf'
+0.20.366.545 I common_speculative_impl_draft_dflash: adding speculative implementation 'draft-dflash'
+0.20.366.551 I common_speculative_impl_draft_dflash: - n_max=7, n_min=0, p_min=0.00
+0.20.366.552 I common_speculative_impl_draft_dflash: - block_size=8, mask_token_id=248070, n_extract=5, sample_from_anchor=true
+0.20.429.612 I srv  llama_server: listening on http://0.0.0.0:8080
+--- 8082 key lines ---
+0.00.430.210 W common_fit_params: failed to fit params to free device memory: n_gpu_layers already set by user to 99, abort
+0.06.136.864 I srv  llama_server: listening on http://0.0.0.0:8082

@@ -1,0 +1,8 @@
+configure log mtime: 2026-10-23 01:55:57.345516962 +0800
+build.pid mtime:     2026-10-23 01:56:00.770439390 +0800
+binary mtime:        2026-10-23 02:15:12.986510779 +0800
+elapsed from build.pid to binary: 19 minutes 12 seconds
+build command: cmake --build <build-dir> --target llama-server -j 24
+configure log: evidence/build/configure-cu130.log
+build log: evidence/build/build-cu130.log
+CMake keys: evidence/build/CMakeCache.key.txt

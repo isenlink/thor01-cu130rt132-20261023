@@ -1,0 +1,48 @@
+Warning: Permanently added '192.168.1.101' (ED25519) to the list of known hosts.
+pid=461997
+--- cmdline ---
+/brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu130rt132-sm110a -m /brand_data/ai_workspace/models/RadixArk-F8attn-v2.gguf -md /brand_data/ai_workspace/ai02/models/Qwen3.8-27B-DFlash2-BF16.gguf --mmproj /brand_data/ai_workspace/models/mmproj-Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-BF16.gguf --mmproj-offload --alias qwen3.8-27b --reasoning-effort medium --temp 0.3 -ngl 99 -c 262144 -fa on --cache-type-k f16 --cache-type-v f16 --parallel 1 --port 8080 --host 0.0.0.0 --spec-type draft-dflash --spec-draft-n-max 7 --cache-ram 2048 
+--- mapped runtime/libcuda ---
+aaaad2910000-aaaad7083000 r-xp 00000000 fc:180 3283872                   /brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu130rt132-sm110a
+aaaad7096000-aaaad70b0000 r--p 04776000 fc:180 3283872                   /brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu130rt132-sm110a
+aaaad70b0000-aaaad70b4000 rw-p 04790000 fc:180 3283872                   /brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu130rt132-sm110a
+fffd5eb20000-fffd5fc84000 r-xp 00000000 fc:180 3276975                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libnvidia-nvvm70.so
+fffd5fc84000-fffd5fc93000 ---p 01164000 fc:180 3276975                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libnvidia-nvvm70.so
+fffd5fc93000-fffd5ff3d000 r--p 01163000 fc:180 3276975                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libnvidia-nvvm70.so
+fffd5ff3d000-fffd5ffae000 rw-p 0140d000 fc:180 3276975                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libnvidia-nvvm70.so
+fffd5fff1000-fffd5fff2000 rw-p 0147f000 fc:180 3276975                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libnvidia-nvvm70.so
+ffff68c10000-ffff6a6d1000 r-xp 00000000 fc:180 3276976                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libnvidia-ptxjitcompiler.so
+ffff6a6d1000-ffff6a6e0000 ---p 01ac1000 fc:180 3276976                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libnvidia-ptxjitcompiler.so
+ffff6a6e0000-ffff6aaf5000 r--p 01ac0000 fc:180 3276976                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libnvidia-ptxjitcompiler.so
+ffff6aaf5000-ffff6aafe000 rw-p 01ed5000 fc:180 3276976                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libnvidia-ptxjitcompiler.so
+ffff6ab00000-ffff6ab27000 r-xp 00000000 fc:180 3276978                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libnvcuextend.so
+ffff6ab27000-ffff6ab36000 ---p 00027000 fc:180 3276978                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libnvcuextend.so
+ffff6ab36000-ffff6ab43000 r--p 00026000 fc:180 3276978                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libnvcuextend.so
+ffff6ab43000-ffff6ab44000 rw-p 00033000 fc:180 3276978                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libnvcuextend.so
+ffff6cbf0000-ffff7202c000 r-xp 00000000 fc:180 3276977                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libcuda.so.1.1
+ffff7202c000-ffff7203b000 ---p 0543c000 fc:180 3276977                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libcuda.so.1.1
+ffff7203b000-ffff7237c000 r--p 0543b000 fc:180 3276977                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libcuda.so.1.1
+ffff7237c000-ffff72382000 rw-p 0577c000 fc:180 3276977                   /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libcuda.so.1.1
+ffff723f0000-ffff8cb5d000 r-xp 00000000 fc:180 3279762                   /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcublasLt.so.13
+ffff8cb5d000-ffff8cb6d000 ---p 1a76d000 fc:180 3279762                   /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcublasLt.so.13
+ffff8cb6d000-ffff8cdf2000 r--p 1a76d000 fc:180 3279762                   /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcublasLt.so.13
+ffff8cdf2000-ffff946de000 rw-p 1a9f2000 fc:180 3279762                   /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcublasLt.so.13
+ffff99c40000-ffff9d738000 r-xp 00000000 fc:180 3279771                   /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcublas.so.13
+ffff9d738000-ffff9d748000 ---p 03af8000 fc:180 3279771                   /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcublas.so.13
+ffff9d748000-ffff9d755000 r--p 03af8000 fc:180 3279771                   /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcublas.so.13
+ffff9d755000-ffff9d75c000 rw-p 03b05000 fc:180 3279771                   /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcublas.so.13
+ffff9d790000-ffff9d846000 r-xp 00000000 fc:180 3279767                   /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcudart.so.13
+ffff9d846000-ffff9d856000 ---p 000b6000 fc:180 3279767                   /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcudart.so.13
+ffff9d856000-ffff9d85c000 r--p 000b6000 fc:180 3279767                   /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcudart.so.13
+ffff9d85c000-ffff9d85d000 rw-p 000bc000 fc:180 3279767                   /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcudart.so.13
+--- smaps_rollup ---
+Rss:             4183504 kB
+Pss:             2793951 kB
+Pss_Dirty:       2780840 kB
+Pss_Anon:        1399200 kB
+Pss_File:        1394751 kB
+Pss_Shmem:             0 kB
+Anonymous:       1399200 kB
+Shared_Hugetlb:        0 kB
+Private_Hugetlb:       0 kB
+SwapPss:          187692 kB

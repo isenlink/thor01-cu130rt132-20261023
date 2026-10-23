@@ -1,0 +1,8 @@
+upstream commit: 72797e89198ab564fd0e6baa54ab196e8dd1d884
+patch: patches/production-sm110a-t4-dflash.patch
+patch SHA256: 996e46dcd755576f800d5357516cb7128c72d5646757467467f4ee2a946b0a4d
+expected tree: 5ff7bf075c7363e62e662d53bb9d235367eecf1d
+actual tree:   5ff7bf075c7363e62e662d53bb9d235367eecf1d
+result: MATCH
+method: temporary git worktree at upstream commit, git apply --check, git apply, git add -A, git write-tree
+note: git apply reports pre-existing trailing-whitespace warnings; tree hash still matches

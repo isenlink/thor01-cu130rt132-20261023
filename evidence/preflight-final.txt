@@ -1,0 +1,27 @@
+Warning: Permanently added '192.168.1.101' (ED25519) to the list of known hosts.
+[PASS] aarch64
+[PASS] kernel=6.1.119-rt45-prod-rt-tegra
+[PASS] python3
+[PASS] ss
+[PASS] file /brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu130rt132-sm110a
+[PASS] sha256 /brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu130rt132-sm110a
+[PASS] sha256 /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcudart.so.13
+[PASS] sha256 /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcublas.so.13
+[PASS] sha256 /brand_data/ai_workspace/thor01-cu132-20261022/runtime/lib/libcublasLt.so.13
+[PASS] sha256 /brand_data/ai_workspace/thor01-cu132-20261022/compat/compat_orin/libcuda.so.1.1
+[PASS] file /brand_data/ai_workspace/models/RadixArk-F8attn-v2.gguf
+[PASS] file /brand_data/ai_workspace/ai02/models/Qwen3.8-27B-DFlash2-BF16.gguf
+[PASS] file /brand_data/ai_workspace/models/mmproj-Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-BF16.gguf
+[PASS] file /brand_data/ai_workspace/models/qwen3vl8b/Qwen3-VL-8B-Instruct-Q6_K.gguf
+[PASS] file /brand_data/ai_workspace/models/qwen3vl8b/mmproj-Qwen3-VL-8B-Instruct-F16.gguf
+[PASS] sha256 /brand_data/ai_workspace/models/RadixArk-F8attn-v2.gguf
+[PASS] sha256 /brand_data/ai_workspace/ai02/models/Qwen3.8-27B-DFlash2-BF16.gguf
+[PASS] sha256 /brand_data/ai_workspace/models/mmproj-Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-BF16.gguf
+[PASS] sha256 /brand_data/ai_workspace/models/qwen3vl8b/Qwen3-VL-8B-Instruct-Q6_K.gguf
+[PASS] sha256 /brand_data/ai_workspace/models/qwen3vl8b/mmproj-Qwen3-VL-8B-Instruct-F16.gguf
+[INFO] hugepages total=25600 free=9 size_kb=2048
+[PASS] hugepage pool >= 50 GiB
+[INFO] ports already active; stop services before switch (the switch script does this)
+LISTEN 0      512          0.0.0.0:8080      0.0.0.0:*    users:(("llama-server-cu",pid=461997,fd=12))
+LISTEN 0      512          0.0.0.0:8082      0.0.0.0:*    users:(("llama-server-cu",pid=462129,fd=12))
+[preflight] OK

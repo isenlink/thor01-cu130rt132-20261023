@@ -1,0 +1,101 @@
+{
+  "method": {
+    "cache_prompt": false,
+    "temperature": 0,
+    "top_k": 1,
+    "seed": 42,
+    "runs_per_variant": 3
+  },
+  "variants": {
+    "cu130rt132": {
+      "files": [
+        "evidence/bench-cu130rt132-8080.json",
+        "evidence/bench-cu130rt132-8080-run2.json",
+        "evidence/bench-cu130rt132-8080-run3.json"
+      ],
+      "mean": {
+        "decode128_tps": 27.403226951118757,
+        "prefill2k_ms": 9314.589333333333,
+        "prefill8k_ms": 35686.07633333334,
+        "post2k_tps": 14.521830299344444,
+        "post8k_tps": 36.930797126162666
+      },
+      "values": {
+        "decode128_tps": [
+          27.31884860733027,
+          27.436679600072587,
+          27.45415264595341
+        ],
+        "prefill2k_ms": [
+          9329.353,
+          9311.41,
+          9303.005
+        ],
+        "prefill8k_ms": [
+          35670.911,
+          35692.41,
+          35694.908
+        ],
+        "post2k_tps": [
+          14.520138464040393,
+          14.520700710933506,
+          14.524651723059431
+        ],
+        "post8k_tps": [
+          36.50683164509518,
+          37.147286514544405,
+          37.13827321884841
+        ]
+      }
+    },
+    "cu132_native": {
+      "files": [
+        "evidence/bench-cu132-native-8080-run1.json",
+        "evidence/bench-cu132-native-8080-run2.json",
+        "evidence/bench-cu132-native-8080-run3.json"
+      ],
+      "mean": {
+        "decode128_tps": 27.849391990534105,
+        "prefill2k_ms": 9099.086333333333,
+        "prefill8k_ms": 34834.21133333333,
+        "post2k_tps": 14.72588563561174,
+        "post8k_tps": 37.25780687294082
+      },
+      "values": {
+        "decode128_tps": [
+          27.82498043487596,
+          27.865622751688555,
+          27.857572785037803
+        ],
+        "prefill2k_ms": [
+          9117.256,
+          9093.219,
+          9086.784
+        ],
+        "prefill8k_ms": [
+          34820.153,
+          34842.439,
+          34840.042
+        ],
+        "post2k_tps": [
+          14.711579484212022,
+          14.728581696496954,
+          14.73749572612624
+        ],
+        "post8k_tps": [
+          37.090153800504424,
+          37.35952817406551,
+          37.323738644252515
+        ]
+      }
+    }
+  },
+  "comparison_percent": {
+    "decode128_tps": -1.6021,
+    "prefill2k_ms": 2.3684,
+    "prefill8k_ms": 2.4455,
+    "post2k_tps": -1.3857,
+    "post8k_tps": -0.8777
+  },
+  "interpretation": "negative decode tps = slower; positive prefill ms = slower"
+}

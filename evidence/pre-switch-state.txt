@@ -1,0 +1,67 @@
+Warning: Permanently added '192.168.1.101' (ED25519) to the list of known hosts.
+Fri Oct 23 02:02:59 CST 2026
+== host
+Linux tegra-ubuntu 6.1.119-rt45-prod-rt-tegra #1 SMP PREEMPT_RT Sun Jun  7 22:27:50 CST 2026 aarch64 aarch64 aarch64 GNU/Linux
+== mem
+               total        used        free      shared  buff/cache   available
+Mem:            58Gi        57Gi       797Mi        97Mi       809Mi       927Mi
+Swap:           13Gi       253Mi        13Gi
+HugePages_Total:   25600
+HugePages_Free:       14
+Hugepagesize:       2048 kB
+== services
+active
+active
+LISTEN 0      512          0.0.0.0:8080      0.0.0.0:*    users:(("llama-server-cu",pid=346147,fd=12))
+LISTEN 0      512          0.0.0.0:8082      0.0.0.0:*    users:(("llama-server-cu",pid=346319,fd=12))
+== pids
+346147 /brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu132-sm110a -m /brand_data/ai_workspace/models/RadixArk-F8attn-v2.gguf -md /brand_data/ai_workspace/ai02/models/Qwen3.8-27B-DFlash2-BF16.gguf --mmproj /brand_data/ai_workspace/models/mmproj-Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-BF16.gguf --mmproj-offload --alias qwen3.8-27b --reasoning-effort medium --temp 0.3 -ngl 99 -c 262144 -fa on --cache-type-k f16 --cache-type-v f16 --parallel 1 --port 8080 --host 0.0.0.0 --spec-type draft-dflash --spec-draft-n-max 7 --cache-ram 2048
+346319 /brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu132-sm110a -m /brand_data/ai_workspace/models/qwen3vl8b/Qwen3-VL-8B-Instruct-Q6_K.gguf --mmproj /brand_data/ai_workspace/models/qwen3vl8b/mmproj-Qwen3-VL-8B-Instruct-F16.gguf --mmproj-offload --alias qwen3-vl-8b -ngl 99 -c 20480 -np 1 --host 0.0.0.0 --port 8082
+459919 bash -c BASE=/brand_data/ai_workspace/thor01-cu132-20261022; date; echo "== host"; uname -a; echo "== mem"; free -h; grep -E "HugePages_Total|HugePages_Free|Hugepagesize" /proc/meminfo; echo "== services"; systemctl is-active thor01-qwen38-27b.service thor01-qwen3vl8b.service; ss -ltnp | grep -E ":(8080|8082) "; echo "== pids"; pgrep -af llama-server; echo "== sha"; sha256sum $BASE/bin/llama-server-cu132-sm110a $BASE/run-8080-cu132.sh $BASE/run-8082-cu132.sh $BASE/systemd/*.service; echo "== units"; sudo -n cat /etc/systemd/system/thor01-qwen38-27b.service; echo ---; sudo -n cat /etc/systemd/system/thor01-qwen3vl8b.service; echo "== dmesg"; sudo -n dmesg | grep -iE "Xid|OOM|out of memory|timeout" | tail -20 || true; echo "== latest logs"; ls -lt $BASE/logs | head -5
+== sha
+73bb5fc7540cc9b1547b6f5d8d9c3233081b389a758e75be2e09c295584fe1ee  /brand_data/ai_workspace/thor01-cu132-20261022/bin/llama-server-cu132-sm110a
+439a2e91b83168223072ddbb55153ac3b853026254617179eae4bdc43f746a5d  /brand_data/ai_workspace/thor01-cu132-20261022/run-8080-cu132.sh
+5f604f4ca9cc4f2477c80f3075aa5fdad5e2fc5447a7d309be7ed0fbb80aca0d  /brand_data/ai_workspace/thor01-cu132-20261022/run-8082-cu132.sh
+5a5d3d333605cd2dd2361504eb0681dfb8e7a4d9524972a9a677a8e6fadfd628  /brand_data/ai_workspace/thor01-cu132-20261022/systemd/thor01-qwen38-27b.service
+4073f2c97751a35875f81d04d05060c7ab407703a865373689cd3fcb7320563f  /brand_data/ai_workspace/thor01-cu132-20261022/systemd/thor01-qwen3vl8b.service
+== units
+[Unit]
+Description=Thor01 qwen3.8-27b llama-server CUDA 13.2 (0.0.0.0:8080)
+Wants=network-online.target
+After=network-online.target systemd-sysctl.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash /brand_data/ai_workspace/thor01-cu132-20261022/run-8080-cu132.sh
+RemainAfterExit=yes
+User=nvidia
+Group=nvidia
+WorkingDirectory=/brand_data/ai_workspace/thor01-cu132-20261022
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target
+---
+[Unit]
+Description=Thor01 qwen3-vl-8b llama-server CUDA 13.2 (0.0.0.0:8082)
+Wants=network-online.target thor01-qwen38-27b.service
+After=network-online.target thor01-qwen38-27b.service systemd-sysctl.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash /brand_data/ai_workspace/thor01-cu132-20261022/run-8082-cu132.sh
+RemainAfterExit=yes
+User=nvidia
+Group=nvidia
+WorkingDirectory=/brand_data/ai_workspace/thor01-cu132-20261022
+TimeoutStartSec=600
+
+[Install]
+WantedBy=multi-user.target
+== dmesg
+== latest logs
+total 132
+-rw-r--r--. 1 nvidia nvidia 12599 Oct 23 01:49 qwen3vl8b-cu132-8082-20261022-140632.log
+-rw-r--r--. 1 nvidia nvidia 82917 Oct 23 01:49 radixark-cu132-262k-8080-20261022-140608.log
+-rw-rw-r--. 1 nvidia nvidia     7 Oct 22 14:06 qwen3vl8b-cu132-8082.pid
+-rw-rw-r--. 1 nvidia nvidia     7 Oct 22 14:06 radixark-cu132-8080.pid

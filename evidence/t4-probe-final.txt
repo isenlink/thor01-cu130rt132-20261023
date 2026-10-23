@@ -1,0 +1,3 @@
+Warning: Permanently added '192.168.1.101' (ED25519) to the list of known hosts.
+devices=1 name=Thor cc=11.0 cc_code=1100 runtime=13020 driver=13020
+T4_GUARD=NOT_MATCHED expected_cc_code=1010

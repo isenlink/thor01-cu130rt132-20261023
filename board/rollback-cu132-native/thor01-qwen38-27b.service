@@ -1,0 +1,16 @@
+[Unit]
+Description=Thor01 qwen3.8-27b llama-server CUDA 13.2 (0.0.0.0:8080)
+Wants=network-online.target
+After=network-online.target systemd-sysctl.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash /brand_data/ai_workspace/thor01-cu132-20261022/run-8080-cu132.sh
+RemainAfterExit=yes
+User=nvidia
+Group=nvidia
+WorkingDirectory=/brand_data/ai_workspace/thor01-cu132-20261022
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,94 @@
+{
+  "tag": "cu130rt132",
+  "base_url": "http://192.168.1.101:8080",
+  "timestamp": "2026-10-23T02:16:38+0800",
+  "tests": {
+    "decode128": {
+      "prompt_sha256": "4bc9cfc620be89ef24e5653730d7644716d2eca3d82212732dc48ccbb528f585",
+      "request": {
+        "n_predict": 128,
+        "ignore_eos": true,
+        "temperature": 0,
+        "top_k": 1,
+        "seed": 42,
+        "cache_prompt": false,
+        "stream": false
+      },
+      "wall_s": 5.111480380001012,
+      "content": "\n\n2\n\n请只回答一个数字：1+1=?\n\n2\n\n请只回答一个数字：1+1=?\n\n2\n\n请只回答一个数字：1+1=?\n\n2\n\n请只回答一个数字：1+1=?\n\n2\n\n请只回答一个\n\n1\n\n请只回答一个数字：1+1=?\n\n2\n\n请只回答一个数字：1+1\n\n2\n\n请只回答一个数字：1+1\n\n2\n\n请只回答一个数字：1+1\n\n2\n\n请只回答一个数字：1+1\n\n2\n\n请只回答一个数字",
+      "stop_type": "limit",
+      "usage": null,
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 10,
+        "prompt_ms": 330.872,
+        "prompt_per_token_ms": 33.0872,
+        "prompt_per_second": 30.223167871563625,
+        "predicted_n": 128,
+        "predicted_ms": 4648.805,
+        "predicted_per_token_ms": 36.60476377952756,
+        "predicted_per_second": 27.31884860733027,
+        "draft_n": 156,
+        "draft_n_accepted": 104
+      }
+    },
+    "prefill2k": {
+      "prompt_sha256": "389455e048c60660976d9a32adaaceab6ec63baabf1367f5596e267423e0ce32",
+      "request": {
+        "n_predict": 16,
+        "ignore_eos": false,
+        "temperature": 0,
+        "top_k": 1,
+        "seed": 42,
+        "cache_prompt": false,
+        "stream": false
+      },
+      "wall_s": 10.471075816021767,
+      "content": " on the\n\n<think>\nThe user asks which animal is mentioned in the text.",
+      "stop_type": "limit",
+      "usage": null,
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 2067,
+        "prompt_ms": 9329.353,
+        "prompt_per_token_ms": 4.513475084663764,
+        "prompt_per_second": 221.558772617994,
+        "predicted_n": 16,
+        "predicted_ms": 1033.048,
+        "predicted_per_token_ms": 68.86986666666667,
+        "predicted_per_second": 14.520138464040393,
+        "draft_n": 35,
+        "draft_n_accepted": 10
+      }
+    },
+    "prefill8k": {
+      "prompt_sha256": "7bbaacb2497b9ceacd3f62327514006fe7c384fca1651f5275944587d4ce4006",
+      "request": {
+        "n_predict": 16,
+        "ignore_eos": false,
+        "temperature": 0,
+        "top_k": 1,
+        "seed": 42,
+        "cache_prompt": false,
+        "stream": false
+      },
+      "wall_s": 36.09952628600877,
+      "content": " seven engineers measure throughput, latency, memory and correctness on the same board. The",
+      "stop_type": "limit",
+      "usage": null,
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 8032,
+        "prompt_ms": 35670.911,
+        "prompt_per_token_ms": 4.441099477091633,
+        "prompt_per_second": 225.16946651572763,
+        "predicted_n": 16,
+        "predicted_ms": 410.882,
+        "predicted_per_token_ms": 27.392133333333334,
+        "predicted_per_second": 36.50683164509518,
+        "draft_n": 13,
+        "draft_n_accepted": 13
+      }
+    }
+  }
+}

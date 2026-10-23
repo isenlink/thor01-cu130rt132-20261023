@@ -1,0 +1,7 @@
+health_8080 PASS
+health_8082 PASS
+8080_short PASS
+8080_digit_copy PASS
+8080_json PASS
+8082_short PASS
+8082_red_image PASS
