@@ -8,7 +8,7 @@
 | 基线 commit | `72797e89198ab564fd0e6baa54ab196e8dd1d884` |
 | commit 时间 | 2026-09-10 10:06:07 +0300 |
 | commit 标题 | `vulkan : add command-buffer debug labels for GPU profilers (#28101)` |
-| 应用补丁后的 git tree | `5ff7bf075c7363e62e662d53bb9d235367eecf1d` |
+| 应用补丁后的 git tree（可复现值） | `a652159a5b1c850289ed1b33f4bf28eb00adb004` |
 | 生产补丁 | `patches/production-sm110a-t4-dflash.patch` |
 | 补丁 SHA256 | `996e46dcd755576f800d5357516cb7128c72d5646757467467f4ee2a946b0a4d` |
 
@@ -26,14 +26,25 @@ cd llama.cpp
 git checkout 72797e89198ab564fd0e6baa54ab196e8dd1d884
 git apply /path/to/patches/production-sm110a-t4-dflash.patch
 git add -A
-git write-tree          # 应为 5ff7bf075c7363e62e662d53bb9d235367eecf1d
+git write-tree          # 应为 a652159a5b1c850289ed1b33f4bf28eb00adb004
 ```
 
-如果 `git write-tree` 与记录值不同，先停下核对补丁和换行/文件模式，不要继续构建。
+**适用环境（2026-10-31 独立重放确认）**：`git 2.47.3`、`core.autocrlf` 未设、
+`core.fileMode` 默认（true/false 两种模式重放结果相同，均为 `a652159a…`）。
+基线 commit 的 tree `4fe7b3d13209c8d5801994ea6b2ed733b861a793` 与上游官方一致，
+确认 clone 忠实。两次干净重放结果一致（确定性）。
 
-2026-10-23 已在临时 git worktree 上实际重放补丁并执行 `git write-tree`，结果
-与 `5ff7bf075c7363e62e662d53bb9d235367eecf1d` 一致。`git apply` 会报告补丁原有的
-trailing-whitespace warning，不影响 tree hash。
+如果 `git write-tree` 与上述可复现值不同，先核对：①补丁 SHA256 是否为
+`996e46dc…`（见上表）②基线 commit 是否正确 ③`git diff --stat` 是否为
+36 文件 / 3019 增 / 70 删。内容 diff 一致即补丁完整，可继续构建；tree hash
+差异若仅来自文件模式/换行环境，不影响构建产物。
+
+> 历史对照：2026-10-23 首次发布时在临时 git worktree 上重放得到
+> `5ff7bf075c7363e62e662d53bb9d235367eecf1d`，与本次干净 clone 重放值不同。
+> 该 worktree 的 git 环境细节（fileMode/换行/索引状态）已不可完全还原；
+> 内容一致性（diff stat + 补丁 SHA）已独立验证一致，故以可复现值
+> `a652159a…` 为准。`git apply` 会报告补丁原有的 trailing-whitespace warning，
+> 不影响 tree hash。
 
 ## 2. 补丁范围
 
@@ -99,7 +110,7 @@ Build cuda_13.0.r13.0/compiler.36424714_0
 | 主模型 | `/brand_data/ai_workspace/models/RadixArk-F8attn-v2.gguf` | 20G，SHA256 `d15dac916823f590fa8e584ae18a37c62d61947ce33df943a658c83766d2e7e9` |
 | DFlash draft | `/brand_data/ai_workspace/ai02/models/Qwen3.8-27B-DFlash2-BF16.gguf` | 3.6G，SHA256 `26d47ca20ab07688327a63d912acad222d924eaaa92a980cc488de3c67e736bc` |
 | 主模型 mmproj | `/brand_data/ai_workspace/models/mmproj-Qwen3.8-27B-Uncensored-HauhauCS-Aggressive-BF16.gguf` | 889M，SHA256 `5681b690bcb8eb10cd28d62d078cb4e01521a3ea4880a3fc7d54de72de2dd142` |
-| VL 模型 | `/brand_data/ai_workspace/models/qwen3vl8b/Qwen3-VL-8B-Instruct-Q6_K.gguf` | 6.3G，SHA256 `f1a6f30ddae86e625cb5f494891b9a2a68169819f42527ef0c65fb46652366b5` |
-| VL mmproj | `/brand_data/ai_workspace/models/qwen3vl8b/mmproj-Qwen3-VL-8B-Instruct-F16.gguf` | 1.1G，SHA256 `30cc93c7375b529b2abe165d1597e12f6717bf87565655a546727c4bd2bb5ada` |
+| VL 模型 | `/brand_data/ai_workspace/models/qwen3vl8b/Qwen3-VL-8B-Instruct-Q6_K.gguf` | 6.3G，SHA256 `f1a6f30ddae86e625cb5f494891b9a2a68169819f42527ef0c65fb46652366b5`。标准 llama.cpp K-quant 量化件，官方来源 `Qwen/Qwen3-VL-8B-Instruct-GGUF`（HuggingFace，Qwen 官方 GGUF 仓，`Q6_K` 档）；社区同款量化 `bartowski/Qwen_Qwen3-VL-8B-Instruct-GGUF`、`mradermacher/Qwen3-VL-8B-Instruct-GGUF` 文件名一致，可对照 SHA 取件 |
+| VL mmproj | `/brand_data/ai_workspace/models/qwen3vl8b/mmproj-Qwen3-VL-8B-Instruct-F16.gguf` | 1.1G，SHA256 `30cc93c7375b529b2abe165d1597e12f6717bf87565655a546727c4bd2bb5ada`。多模态投影件，随上述官方 GGUF 仓分发（`mmproj-F16` 档） |
 
 本包验证的是二进制/运行时组合和该模型上的输出质量；模型权重许可由模型提供方决定。
